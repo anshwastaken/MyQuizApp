@@ -192,24 +192,6 @@ class QuizActivity : AppCompatActivity() {
         quizBinding.OptionText4.isClickable = true
     }
 
-    private fun timeleft(){
-        timer = object : CountDownTimer(leftime,1000){
-            override fun onTick(millisUntilFinished: Long) {
-                leftime = millisUntilFinished
-                updateCountDown()
-            }
-
-            override fun onFinish() {
-                resetTimer()
-                updateCountDown()
-                Toast.makeText(applicationContext,"Sorry continue with next question",Toast.LENGTH_SHORT).show()
-                timeContinue = false
-            }
-
-        }.start()
-        timeContinue = true
-    }
-
     fun SendScore(){
         user?.let {
             val useruid = it.uid
